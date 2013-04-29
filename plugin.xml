@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="kotlinBuilder"
+         name="Kotlin Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="eclipsekotlin.builder.KotlinBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="kotlinNature"
+         name="Kotlin Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="eclipsekotlin.builder.KotlinNature">
+         </run>
+      </runtime>
+      <builder
+            id="EclipseKotlin.kotlinBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            nameFilter="*"
+            id="EclipseKotlin.contribution1"
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               enablesFor="+"
+               class="eclipsekotlin.builder.ToggleNatureAction"
+               menubarPath="additions"
+               id="EclipseKotlin.addRemoveNatureAction"
+               label="Add/Remove Kotlin Nature">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+</plugin>
