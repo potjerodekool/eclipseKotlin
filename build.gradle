@@ -1,0 +1,28 @@
+String kotlinDir = 'C:/Users/evert/git/kotlin'
+
+task copyJars() {
+	copy {
+		from "$kotlinDir/dist/kotlinc/lib"
+		into 'ext/lib'
+		include '*.jar'
+	}
+	
+	copy {
+		from "$kotlinDir/ide-compiler-runner/build/libs"
+		into 'ext/lib'
+		include '*.jar'
+	}
+	
+	copy {
+		from "$kotlinDir/ideaSDK/lib"
+		into 'ext/lib'
+		include 'openapi.jar'
+	}
+	
+	copy {
+		from "$kotlinDir/ideaSDK/lib"
+		into 'ext/lib'
+		include 'util.jar'
+	}
+	
+}

@@ -1,4 +1,19 @@
-package eclipsekotlin.builder;
+/*
+ * Copyright [2013] [Platonos]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.platonos.eclipse.kotlin.builder;
 
 import java.util.Iterator;
 
@@ -12,6 +27,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
+/**
+ * @author Evert Tigchelaar (everttigchelaar@gmail.com)
+ */
 public class ToggleNatureAction implements IObjectActionDelegate {
 
 	private ISelection selection;
@@ -23,8 +41,8 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 		if (selection instanceof IStructuredSelection) {
-			for (Iterator it = ((IStructuredSelection) selection).iterator(); it
-					.hasNext();) {
+			for (@SuppressWarnings("rawtypes")
+			Iterator it = ((IStructuredSelection) selection).iterator(); it.hasNext();) {
 				Object element = it.next();
 				IProject project = null;
 				if (element instanceof IProject) {

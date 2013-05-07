@@ -9,7 +9,7 @@
       <builder
             hasNature="true">
          <run
-               class="eclipsekotlin.builder.KotlinBuilder">
+               class="org.platonos.eclipse.kotlin.builder.KotlinBuilder">
          </run>
       </builder>
    </extension>
@@ -19,7 +19,7 @@
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
-               class="eclipsekotlin.builder.KotlinNature">
+               class="org.platonos.eclipse.kotlin.builder.KotlinNature">
          </run>
       </runtime>
       <builder
@@ -35,7 +35,7 @@
             objectClass="org.eclipse.core.resources.IProject">
          <action
                enablesFor="+"
-               class="eclipsekotlin.builder.ToggleNatureAction"
+               class="org.platonos.eclipse.kotlin.builder.ToggleNatureAction"
                menubarPath="additions"
                id="EclipseKotlin.addRemoveNatureAction"
                label="Add/Remove Kotlin Nature">
@@ -43,8 +43,8 @@
       </objectContribution>
    </extension>
    <extension
-         id="xmlProblem"
-         name="XML Problem"
+         id="kotlinProblem"
+         name="Kotlin Problem"
          point="org.eclipse.core.resources.markers">
       <super
             type="org.eclipse.core.resources.problemmarker">
@@ -52,6 +52,14 @@
       <persistent
             value="true">
       </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+         <content-type
+         	id="org.platonos.eclipse.kotlin.kotlinSource"
+         	name="Kotlin Source File"
+         	file-extensions="kt">
+         </content-type> 
    </extension>
 
 </plugin>
