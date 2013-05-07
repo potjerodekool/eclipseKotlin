@@ -6,13 +6,7 @@ task copyJars() {
 		into 'ext/lib'
 		include '*.jar'
 	}
-	
-	copy {
-		from "$kotlinDir/ide-compiler-runner/build/libs"
-		into 'ext/lib'
-		include '*.jar'
-	}
-	
+		
 	copy {
 		from "$kotlinDir/ideaSDK/lib"
 		into 'ext/lib'
@@ -24,5 +18,5 @@ task copyJars() {
 		into 'ext/lib'
 		include 'util.jar'
 	}
-	
+		
 }
